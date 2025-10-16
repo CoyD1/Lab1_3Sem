@@ -2,7 +2,7 @@
 
 int main()
 {
-    std::cout << "Hello, World! Version";
+    std::cout << "Hello, World! Version ";
 
 #ifdef VERSION_PROJECT
     std::cout << VERSION_PROJECT;

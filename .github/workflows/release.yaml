@@ -18,9 +18,9 @@ jobs:
         id: get_tag
         run: |
           git fetch --tags
-          last_tag=$(git tag --sort=-creatordate | head -n 1 || echo "0.0.0")
+          last_tag=$(git tag --sort=-creatordate | head -n 1 || echo "1.0.0")
           if [ -z "$last_tag" ]; then
-            last_tag="0.0.0"
+            last_tag="1.0.0"
           fi
           echo "last_tag=$last_tag" >> $GITHUB_ENV
 
@@ -29,7 +29,7 @@ jobs:
         run: |
           IFS='.' read -r major minor patch <<< "${last_tag}"
           patch=$((patch+1))
-          new_tag="$major.$minor.$patch"
+          new_tag="1.0.$patch"
           echo "new_tag=$new_tag" >> $GITHUB_ENV
           echo "new_tag=$new_tag" >> "$GITHUB_OUTPUT"
 
